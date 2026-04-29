@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	
 	if direction != Vector2.ZERO:
 		velocity = direction * SPEED
-		
+		#aca hice esto para dar vuelta el sprite cuando me muevo
 		var angulito_del_movimiento = direction.angle()
 		personaje.rotation = angulito_del_movimiento -(PI / 2)
 	else:
@@ -20,6 +20,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	#para detectar items en modo test por el momento
-	#seguro usamos un group del tipo items
+	#seguro usamos un group del tipo items por ahora cuadradito
 	if body.is_in_group("cuadradito"):
 		print("te vi")
