@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bu2gms8radgl7"]
+
+[ext_resource type="PackedScene" uid="uid://difl8slskhcp1" path="res://src/scenes/player/player.tscn" id="1_1dhvx"]
+
+[node name="WorldTest" type="Node2D" unique_id=211107038]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=625326707]
+offset_right = 1208.0
+offset_bottom = 662.0
+color = Color(0.4679672, 0.10245139, 0.3175443, 1)
+
+[node name="Player" parent="." unique_id=2066801081 instance=ExtResource("1_1dhvx")]
+position = Vector2(527, 370)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=970866654]
+offset_left = 311.0
+offset_top = 235.0
+offset_right = 351.0
+offset_bottom = 275.0
