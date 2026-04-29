@@ -2,18 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://difl8slskhcp1" path="res://src/scenes/player/player.tscn" id="1_1dhvx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dhvx"]
+size = Vector2(45.5, 41.5)
+
 [node name="WorldTest" type="Node2D" unique_id=211107038]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=625326707]
-offset_right = 1208.0
-offset_bottom = 662.0
-color = Color(0.4679672, 0.10245139, 0.3175443, 1)
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 1205.0
+offset_bottom = 657.0
+color = Color(0.842374, 0.6794331, 0.4983136, 1)
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("1_1dhvx")]
 position = Vector2(527, 370)
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=970866654]
-offset_left = 311.0
-offset_top = 235.0
-offset_right = 351.0
-offset_bottom = 275.0
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1697062501 groups=["cuadradito"]]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=802751612]
+offset_left = 272.0
+offset_top = 356.0
+offset_right = 312.0
+offset_bottom = 396.0
+color = Color(0.021434637, 0.021434635, 0.021434633, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1279917571]
+position = Vector2(291.25, 376.25)
+shape = SubResource("RectangleShape2D_1dhvx")

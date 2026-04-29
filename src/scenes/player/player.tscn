@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qopur"]
 size = Vector2(40.125, 41.25)
 
-[node name="Player" type="CharacterBody2D" unique_id=2066801081]
+[node name="Player" type="CharacterBody2D" unique_id=2066801081 groups=["player"]]
 script = ExtResource("1_swhsd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297698237]

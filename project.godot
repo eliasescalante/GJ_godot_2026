@@ -28,6 +28,11 @@ folder_colors={
 "res://src/scripts/": "yellow"
 }
 
+[global_group]
+
+player=""
+cuadradito=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
