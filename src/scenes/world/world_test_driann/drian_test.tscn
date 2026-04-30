@@ -8,10 +8,17 @@
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("1_1m823")]
 
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=885136623]
+current = true
+
 [node name="Button" type="Button" parent="." unique_id=735686070 node_paths=PackedStringArray("bip_sfx")]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "aaaaaaaaaaaaaaaaaaaaaaa"
+offset_left = -560.0
+offset_top = -26.0
+offset_right = -446.0
+offset_bottom = 51.0
+text = "Make bip 
+and 
+delete button"
 script = ExtResource("2_3tqu7")
 bip_sfx = NodePath("TestBid2D")
 
@@ -19,5 +26,7 @@ bip_sfx = NodePath("TestBid2D")
 stream = ExtResource("2_npas0")
 volume_db = 15.668
 pitch_scale = 4.0
+attenuation = 12.125693
+panning_strength = 3.0
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

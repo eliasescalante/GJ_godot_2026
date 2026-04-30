@@ -5,6 +5,6 @@ extends Button
 
 func _on_pressed() -> void:
 
-	AudioManager.play_detached_2d_sfx(bip_sfx, self.global_position)
+	AudioManager.play_detached_2d_sfx(bip_sfx, global_position)
 
 	queue_free()
