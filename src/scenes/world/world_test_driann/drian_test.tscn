@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://478muw34xwue"]
+
+[ext_resource type="PackedScene" uid="uid://difl8slskhcp1" path="res://src/scenes/player/player.tscn" id="1_1m823"]
+[ext_resource type="Script" uid="uid://bbvafdfug2l51" path="res://src/scenes/world/world_test_driann/button.gd" id="2_3tqu7"]
+[ext_resource type="AudioStream" uid="uid://trsprtnqyr7j" path="res://src/assets/audio/test__sine-440hz.wav" id="2_npas0"]
+
+[node name="DrianTest" type="Node" unique_id=413712403]
+
+[node name="Player" parent="." unique_id=2066801081 instance=ExtResource("1_1m823")]
+
+[node name="Button" type="Button" parent="." unique_id=735686070 node_paths=PackedStringArray("bip_sfx")]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "aaaaaaaaaaaaaaaaaaaaaaa"
+script = ExtResource("2_3tqu7")
+bip_sfx = NodePath("TestBid2D")
+
+[node name="TestBid2D" type="AudioStreamPlayer2D" parent="Button" unique_id=834390917]
+stream = ExtResource("2_npas0")
+volume_db = 15.668
+pitch_scale = 4.0
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
