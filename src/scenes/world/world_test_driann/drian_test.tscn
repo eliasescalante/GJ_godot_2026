@@ -8,9 +8,6 @@
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("1_1m823")]
 
-[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=885136623]
-current = true
-
 [node name="ButtonLeft" type="Button" parent="." unique_id=735686070 node_paths=PackedStringArray("bip_sfx")]
 offset_left = -560.0
 offset_top = -26.0
@@ -22,6 +19,7 @@ delete button"
 script = ExtResource("2_3tqu7")
 bip_sfx = NodePath("TestBid2D")
 delete_on_pressed = true
+play_detached = true
 
 [node name="TestBid2D" type="AudioStreamPlayer2D" parent="ButtonLeft" unique_id=834390917]
 stream = ExtResource("2_npas0")
