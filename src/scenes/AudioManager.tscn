@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b4ju16amum1jq"]
+
+[ext_resource type="Script" uid="uid://ckj2f2o5e2i14" path="res://src/scripts/AudioManager.gd" id="1_script"]
+[ext_resource type="AudioStream" uid="uid://trsprtnqyr7j" path="res://src/assets/audio/test__sine-440hz.wav" id="2_0w07p"]
+
+[node name="AudioManager" type="Node" unique_id=86731074 node_paths=PackedStringArray("background_mx")]
+script = ExtResource("1_script")
+background_mx = NodePath("MusicPlayer")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=76832562]
+stream = ExtResource("2_0w07p")
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="." unique_id=2100350226]

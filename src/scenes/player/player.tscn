@@ -17,6 +17,9 @@ debug_color = Color(0.90092397, 0.3072989, 0.12979418, 0.41960785)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1097500561]
 zoom = Vector2(2, 2)
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=1616531794]
+current = true
+
 [node name="Cuerpo" type="Node2D" parent="." unique_id=417038828]
 
 [node name="Icon" type="Sprite2D" parent="Cuerpo" unique_id=902636276]
