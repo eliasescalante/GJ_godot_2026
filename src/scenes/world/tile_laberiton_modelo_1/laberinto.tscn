@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dv77agndd1jbs"]
+
+[ext_resource type="Texture2D" uid="uid://d1rokc6oul5cp" path="res://src/assets/laberinto.png" id="1_11j46"]
+
+[node name="Laberinto" type="Node2D" unique_id=1537931932]
+
+[node name="Laberinto" type="Sprite2D" parent="." unique_id=549683848]
+position = Vector2(626, 385)
+scale = Vector2(1.3289921, 1.4595959)
+texture = ExtResource("1_11j46")

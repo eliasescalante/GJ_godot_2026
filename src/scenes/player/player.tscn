@@ -4,29 +4,37 @@
 [ext_resource type="Texture2D" uid="uid://cv3o0svgr5e3y" path="res://icon.svg" id="2_qopur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qopur"]
-size = Vector2(40.125, 41.25)
+size = Vector2(16, 21)
 
 [node name="Player" type="CharacterBody2D" unique_id=2066801081 groups=["player"]]
 script = ExtResource("1_swhsd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297698237]
-position = Vector2(-0.0625, 0.625)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qopur")
 debug_color = Color(0.90092397, 0.3072989, 0.12979418, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1097500561]
+zoom = Vector2(2, 2)
 
 [node name="Cuerpo" type="Node2D" parent="." unique_id=417038828]
 
 [node name="Icon" type="Sprite2D" parent="Cuerpo" unique_id=902636276]
-position = Vector2(-0.24999905, 1.5)
-scale = Vector2(0.31640625, 0.3359375)
+position = Vector2(-9.536743e-07, 1)
+scale = Vector2(0.12890624, 0.1484375)
 texture = ExtResource("2_qopur")
 
-[node name="Area2D" type="Area2D" parent="Cuerpo" unique_id=2006814782]
+[node name="Detector_pared" type="Area2D" parent="Cuerpo" unique_id=2006814782]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cuerpo/Area2D" unique_id=1937216781]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cuerpo/Detector_pared" unique_id=1937216781]
 rotation = 1.565226
-polygon = PackedVector2Array(97, -43, 0, 0, 96, 46)
+polygon = PackedVector2Array(57.12723, -22.682135, 0, 0, 56.854286, 26.317106)
 
-[connection signal="body_entered" from="Cuerpo/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Detector_item" type="Area2D" parent="Cuerpo" unique_id=711453216]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cuerpo/Detector_item" unique_id=1776219267]
+polygon = PackedVector2Array(-15, 51, 13, 52, -1, 1)
+
+[connection signal="body_entered" from="Cuerpo/Detector_pared" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Cuerpo/Detector_pared" to="." method="_on_detector_pared_body_exited"]
+[connection signal="body_entered" from="Cuerpo/Detector_item" to="." method="_on_detector_item_body_entered"]
