@@ -50,6 +50,15 @@ func _on_finished() -> void:
 	play()
 "
 
+[sub_resource type="GDScript" id="GDScript_2g6n6"]
+resource_name = "restart biutton"
+script/source = "extends Button
+
+
+func _on_pressed() -> void:
+	get_tree().reload_current_scene()
+"
+
 [node name="DrianTest" type="Node" unique_id=413712403]
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("1_1m823")]
@@ -80,20 +89,102 @@ polygon = PackedVector2Array(-8, 0, -11, -10, -17, -21, -14, 0, -17, 21, -12, 10
 position = Vector2(40, 1)
 polygon = PackedVector2Array(-8, 0, -11, -10, -17, -21, -14, 0, -17, 21, -12, 10)
 
-[node name="ButtonLeft" type="Button" parent="." unique_id=735686070 node_paths=PackedStringArray("bip_sfx")]
-offset_left = -560.0
-offset_top = -26.0
-offset_right = -446.0
-offset_bottom = 51.0
-text = "Make bip 
-and 
-delete button"
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1288373812]
+offset_left = -549.0
+offset_top = -103.0
+offset_right = -383.0
+offset_bottom = 136.0
+
+[node name="ButtonLeft" type="Button" parent="VBoxContainer" unique_id=735686070 node_paths=PackedStringArray("bip_sfx")]
+layout_mode = 2
+text = "Make bip and delete"
 script = ExtResource("2_3tqu7")
 bip_sfx = NodePath("TestBid2D")
 delete_on_pressed = true
 play_detached = true
+sfx_start_offset = 2.0
 
-[node name="TestBid2D" type="AudioStreamPlayer2D" parent="ButtonLeft" unique_id=834390917]
+[node name="TestBid2D" type="AudioStreamPlayer2D" parent="VBoxContainer/ButtonLeft" unique_id=834390917]
+stream = ExtResource("2_npas0")
+volume_db = 15.668
+pitch_scale = 4.0
+attenuation = 12.125693
+panning_strength = 3.0
+
+[node name="ButtonLeft2" type="Button" parent="VBoxContainer" unique_id=373053555 node_paths=PackedStringArray("bip_sfx")]
+layout_mode = 2
+text = "Make bip and delete"
+script = ExtResource("2_3tqu7")
+bip_sfx = NodePath("TestBid2D")
+delete_on_pressed = true
+play_detached = true
+sfx_start_offset = 2.0
+
+[node name="TestBid2D" type="AudioStreamPlayer2D" parent="VBoxContainer/ButtonLeft2" unique_id=55024430]
+stream = ExtResource("2_npas0")
+volume_db = 15.668
+pitch_scale = 4.0
+attenuation = 12.125693
+panning_strength = 3.0
+
+[node name="ButtonLeft3" type="Button" parent="VBoxContainer" unique_id=53701224 node_paths=PackedStringArray("bip_sfx")]
+layout_mode = 2
+text = "Make bip and delete"
+script = ExtResource("2_3tqu7")
+bip_sfx = NodePath("TestBid2D")
+delete_on_pressed = true
+play_detached = true
+sfx_start_offset = 2.0
+
+[node name="TestBid2D" type="AudioStreamPlayer2D" parent="VBoxContainer/ButtonLeft3" unique_id=1463191370]
+stream = ExtResource("2_npas0")
+volume_db = 15.668
+pitch_scale = 4.0
+attenuation = 12.125693
+panning_strength = 3.0
+
+[node name="ButtonLeft4" type="Button" parent="VBoxContainer" unique_id=806944062 node_paths=PackedStringArray("bip_sfx")]
+layout_mode = 2
+text = "Make bip and delete"
+script = ExtResource("2_3tqu7")
+bip_sfx = NodePath("TestBid2D")
+delete_on_pressed = true
+play_detached = true
+sfx_start_offset = 2.0
+
+[node name="TestBid2D" type="AudioStreamPlayer2D" parent="VBoxContainer/ButtonLeft4" unique_id=1288973437]
+stream = ExtResource("2_npas0")
+volume_db = 15.668
+pitch_scale = 4.0
+attenuation = 12.125693
+panning_strength = 3.0
+
+[node name="ButtonLeft5" type="Button" parent="VBoxContainer" unique_id=137141035 node_paths=PackedStringArray("bip_sfx")]
+layout_mode = 2
+text = "Make bip and delete"
+script = ExtResource("2_3tqu7")
+bip_sfx = NodePath("TestBid2D")
+delete_on_pressed = true
+play_detached = true
+sfx_start_offset = 2.0
+
+[node name="TestBid2D" type="AudioStreamPlayer2D" parent="VBoxContainer/ButtonLeft5" unique_id=1819630800]
+stream = ExtResource("2_npas0")
+volume_db = 15.668
+pitch_scale = 4.0
+attenuation = 12.125693
+panning_strength = 3.0
+
+[node name="ButtonLeft6" type="Button" parent="VBoxContainer" unique_id=1714890854 node_paths=PackedStringArray("bip_sfx")]
+layout_mode = 2
+text = "Make bip and delete"
+script = ExtResource("2_3tqu7")
+bip_sfx = NodePath("TestBid2D")
+delete_on_pressed = true
+play_detached = true
+sfx_start_offset = 2.0
+
+[node name="TestBid2D" type="AudioStreamPlayer2D" parent="VBoxContainer/ButtonLeft6" unique_id=2084859807]
 stream = ExtResource("2_npas0")
 volume_db = 15.668
 pitch_scale = 4.0
@@ -108,6 +199,7 @@ offset_bottom = 45.0
 text = "Make bip "
 script = ExtResource("2_3tqu7")
 bip_sfx = NodePath("TestBid2D")
+sfx_start_offset = 2.5
 
 [node name="TestBid2D" type="AudioStreamPlayer2D" parent="ButtonRight" unique_id=1802121337]
 position = Vector2(114, 0)
@@ -117,6 +209,27 @@ pitch_scale = 2.0
 attenuation = 12.125693
 panning_strength = 3.0
 
+[node name="RestartButton" type="Button" parent="." unique_id=1413459357]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -379.0
+offset_right = -511.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "RESTART SCENE"
+script = SubResource("GDScript_2g6n6")
+
 [connection signal="finished" from="MovingAudio/AudioStreamPlayer2D" to="MovingAudio/AudioStreamPlayer2D" method="_on_finished"]
-[connection signal="pressed" from="ButtonLeft" to="ButtonLeft" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonLeft" to="VBoxContainer/ButtonLeft" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonLeft2" to="VBoxContainer/ButtonLeft2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonLeft3" to="VBoxContainer/ButtonLeft3" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonLeft4" to="VBoxContainer/ButtonLeft4" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonLeft5" to="VBoxContainer/ButtonLeft5" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonLeft6" to="VBoxContainer/ButtonLeft6" method="_on_pressed"]
 [connection signal="pressed" from="ButtonRight" to="ButtonRight" method="_on_pressed"]
+[connection signal="pressed" from="RestartButton" to="RestartButton" method="_on_pressed"]
