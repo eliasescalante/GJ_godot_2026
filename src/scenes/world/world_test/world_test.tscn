@@ -44,3 +44,18 @@ offset_left = 379.0
 offset_top = 334.0
 offset_right = 396.0
 offset_bottom = 428.0
+
+[node name="Pared2" type="StaticBody2D" parent="." unique_id=156413903 groups=["pared"]]
+position = Vector2(744, -162)
+rotation = 1.5522186
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared2" unique_id=753092514]
+position = Vector2(506, 316)
+shape = SubResource("RectangleShape2D_cykxl")
+
+[node name="ColorRect" type="ColorRect" parent="Pared2" unique_id=2013466426]
+offset_left = 496.0
+offset_top = 270.0
+offset_right = 513.0
+offset_bottom = 364.0

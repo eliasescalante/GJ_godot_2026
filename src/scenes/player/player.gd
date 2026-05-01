@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @onready var personaje = $Cuerpo
-var pared_en_frente = false
+var pared_en_frente = 0
 
 
 func _ready():
@@ -25,17 +25,18 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("pared"):
 		print("esta la pared")
-		pared_en_frente = true
+		pared_en_frente += 1
 
 
 func _on_detector_item_body_entered(body: Node2D) -> void:
-	if body.is_in_group("cuadradito") and not pared_en_frente:
-		print("veo el item")
-	elif body.is_in_group("cuadradito") and pared_en_frente:
-		print("veo el item pero esta tapado por la pared")
+	if body.is_in_group("cuadradito"):
+		if pared_en_frente > 0:
+			print("Veo el item pero esta tapado por la pared")
+		else:
+			print("Veo el item (camino limpio)")
 
 
 func _on_detector_pared_body_exited(body: Node2D) -> void:
 	if body.is_in_group("pared"):
-		pared_en_frente = false
+		pared_en_frente -= 1
 		print("ya no veo la pared")
