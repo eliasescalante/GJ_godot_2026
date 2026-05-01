@@ -9,6 +9,6 @@ func _on_pressed() -> void:
 	if play_detached:
 		AudioManager.play_detached_2d_sfx(bip_sfx, global_position)
 	else:
-		bip_sfx.play()
+		bip_sfx.play(2)
 	
 	if delete_on_pressed: queue_free()

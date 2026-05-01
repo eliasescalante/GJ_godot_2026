@@ -4,9 +4,81 @@
 [ext_resource type="Script" uid="uid://bbvafdfug2l51" path="res://src/scenes/world/world_test_driann/button.gd" id="2_3tqu7"]
 [ext_resource type="AudioStream" uid="uid://trsprtnqyr7j" path="res://src/assets/audio/test__sine-440hz.wav" id="2_npas0"]
 
+[sub_resource type="Animation" id="Animation_3tqu7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-459, -223)]
+}
+
+[sub_resource type="Animation" id="Animation_2g6n6"]
+resource_name = "left_to_right"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-548, -223), Vector2(533, -223)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2q4l"]
+_data = {
+&"RESET": SubResource("Animation_3tqu7"),
+&"left_to_right": SubResource("Animation_2g6n6")
+}
+
+[sub_resource type="GDScript" id="GDScript_3tqu7"]
+script/source = "extends AudioStreamPlayer2D
+
+
+func _on_finished() -> void:
+	play()
+"
+
 [node name="DrianTest" type="Node" unique_id=413712403]
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("1_1m823")]
+
+[node name="MovingAudio" type="Node2D" parent="." unique_id=1926578971]
+position = Vector2(-459, -223)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingAudio" unique_id=2145215420]
+libraries/ = SubResource("AnimationLibrary_t2q4l")
+autoplay = &"left_to_right"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MovingAudio" unique_id=949181754]
+stream = ExtResource("2_npas0")
+volume_db = -16.349
+pitch_scale = 0.5
+autoplay = true
+panning_strength = 3.0
+script = SubResource("GDScript_3tqu7")
+
+[node name="Polygon2D" type="Polygon2D" parent="MovingAudio" unique_id=156962357]
+polygon = PackedVector2Array(-15, 0, 8, -21, 8, 21)
+
+[node name="Polygon2D3" type="Polygon2D" parent="MovingAudio" unique_id=92690646]
+position = Vector2(30, 1)
+polygon = PackedVector2Array(-8, 0, -11, -10, -17, -21, -14, 0, -17, 21, -12, 10)
+
+[node name="Polygon2D4" type="Polygon2D" parent="MovingAudio" unique_id=821285058]
+position = Vector2(40, 1)
+polygon = PackedVector2Array(-8, 0, -11, -10, -17, -21, -14, 0, -17, 21, -12, 10)
 
 [node name="ButtonLeft" type="Button" parent="." unique_id=735686070 node_paths=PackedStringArray("bip_sfx")]
 offset_left = -560.0
@@ -29,20 +101,22 @@ attenuation = 12.125693
 panning_strength = 3.0
 
 [node name="ButtonRight" type="Button" parent="." unique_id=1303132068 node_paths=PackedStringArray("bip_sfx")]
-offset_left = 413.0
+offset_left = 430.0
 offset_top = -32.0
-offset_right = 527.0
+offset_right = 544.0
 offset_bottom = 45.0
 text = "Make bip "
 script = ExtResource("2_3tqu7")
 bip_sfx = NodePath("TestBid2D")
 
 [node name="TestBid2D" type="AudioStreamPlayer2D" parent="ButtonRight" unique_id=1802121337]
+position = Vector2(114, 0)
 stream = ExtResource("2_npas0")
 volume_db = 15.668
-pitch_scale = 4.0
+pitch_scale = 2.0
 attenuation = 12.125693
 panning_strength = 3.0
 
+[connection signal="finished" from="MovingAudio/AudioStreamPlayer2D" to="MovingAudio/AudioStreamPlayer2D" method="_on_finished"]
 [connection signal="pressed" from="ButtonLeft" to="ButtonLeft" method="_on_pressed"]
 [connection signal="pressed" from="ButtonRight" to="ButtonRight" method="_on_pressed"]

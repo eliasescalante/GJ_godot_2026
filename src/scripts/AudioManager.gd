@@ -14,14 +14,14 @@ func play_sfx(player: AudioStreamPlayer) -> void:
 
 	player.play()
 
-## Reproduce un sfx aunque su parent ya no este instanciado 
-func play_detached_2d_sfx(player: AudioStreamPlayer2D, position: Vector2) -> void:
-	if not player:
-		push_warning("2D SFX player not assigned.")
+## Reproduce un sfx en la posicion 2d correcta aunque su parent ya no este instanciado 
+func play_detached_2d_sfx(stream_player_2d: AudioStreamPlayer2D, position: Vector2) -> void:
+	if not stream_player_2d:
+		push_warning("Stream_player_2d not assigned.")
 		return
 
-	var clone := player.duplicate() as AudioStreamPlayer2D
-	add_child(clone)
-	clone.global_position = position
-	clone.play()
-	clone.finished.connect(clone.queue_free)
+	var sfx_clone := stream_player_2d.duplicate() as AudioStreamPlayer2D
+	add_child(sfx_clone)
+	sfx_clone.global_position = position
+	sfx_clone.play()
+	sfx_clone.finished.connect(sfx_clone.queue_free)
