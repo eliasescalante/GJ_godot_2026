@@ -15,13 +15,15 @@ self_modulate = Color(18.876, 18.876, 18.876, 1)
 modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("2_35war")]
-position = Vector2(73, 56)
+position = Vector2(680, 173)
 SPEED = 200.0
+metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1926908656]
 energy = 3.09
 texture = ExtResource("3_6l7c0")
 texture_scale = 0.3
+height = 124.0
 
 [node name="Items" type="Node2D" parent="." unique_id=162860507]
 
@@ -36,9 +38,13 @@ objeto_a_mostrar = 0
 position = Vector2(530, 477)
 objeto_a_mostrar = 4
 
+[node name="Item4" parent="Items" unique_id=1688573214 instance=ExtResource("3_ssvh6")]
+position = Vector2(787, 106)
+objeto_a_mostrar = 6
+
 [node name="Area2D" type="Area2D" parent="." unique_id=541191605]
 position = Vector2(922, 556)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1983440502]
-position = Vector2(289, 368)
+position = Vector2(426, 345)
 shape = SubResource("CircleShape2D_ssvh6")

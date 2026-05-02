@@ -3,7 +3,7 @@ extends Node2D
 
 # --- Enumeración para el Inspector ---
 # Los nombres deben coincidir con los nombres de tus nodos Sprite2D
-enum TipoDeObjeto { ANTEOJOS, ANTEOJOS_ROTO, BOTELLA, BOTELLA_ROTA, PELOTA, PELOTA_ROTA }
+enum TipoDeObjeto { ANTEOJOS, ANTEOJOS_ROTO, BOTELLA, BOTELLA_ROTA, PELOTA, PELOTA_ROTA, LIBRO, LIBRO_ROTO}
 
 @export_group("Configuración Visual")
 ## Selecciona qué objeto es esta instancia
@@ -24,7 +24,9 @@ enum TipoDeObjeto { ANTEOJOS, ANTEOJOS_ROTO, BOTELLA, BOTELLA_ROTA, PELOTA, PELO
 	TipoDeObjeto.BOTELLA: $botella,
 	TipoDeObjeto.BOTELLA_ROTA: $botella_rota,
 	TipoDeObjeto.PELOTA: $pelota,
-	TipoDeObjeto.PELOTA_ROTA: $pelota_rota
+	TipoDeObjeto.PELOTA_ROTA: $pelota_rota,
+	TipoDeObjeto.LIBRO : $libro,
+	TipoDeObjeto.LIBRO_ROTO : $libro_roto
 }
 
 # --- Estado ---

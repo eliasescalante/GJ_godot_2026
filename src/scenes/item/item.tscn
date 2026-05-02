@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwxhxrewl8udx" path="res://src/scenes/item/item.gd" id="1_item"]
 [ext_resource type="Texture2D" uid="uid://cf48apeoouvmn" path="res://src/assets/las cosas.png" id="2_j5quk"]
+[ext_resource type="Texture2D" uid="uid://dsot76bf5jktt" path="res://src/assets/libros.png" id="3_bpqc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_item"]
 size = Vector2(23, 11)
@@ -86,3 +87,19 @@ scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
 region_rect = Rect2(1909.0703, 28.740509, 235.38208, 464.48755)
+
+[node name="libro" type="Sprite2D" parent="." unique_id=473052067]
+visible = false
+position = Vector2(2.3841858e-07, 4)
+scale = Vector2(0.09615385, 0.080474935)
+texture = ExtResource("3_bpqc0")
+region_enabled = true
+region_rect = Rect2(735.2976, 47.571106, 530.39465, 414.27267)
+
+[node name="libro_roto" type="Sprite2D" parent="." unique_id=891914500]
+visible = false
+position = Vector2(2.3841858e-07, 4)
+scale = Vector2(0.09615385, 0.080474935)
+texture = ExtResource("3_bpqc0")
+region_enabled = true
+region_rect = Rect2(120.16545, 38.155792, 527.25616, 433.10327)
