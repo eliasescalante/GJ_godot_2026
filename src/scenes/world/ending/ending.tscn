@@ -1,13 +1,39 @@
 [gd_scene format=3 uid="uid://ikmt0kpbu46i"]
 
+[ext_resource type="Shader" uid="uid://d3ass55fkjcxi" path="res://src/scenes/world/ending/background.gdshader" id="1_u4nl5"]
+
+[sub_resource type="Gradient" id="Gradient_yw5qy"]
+offsets = PackedFloat32Array(0, 0.9848485)
+colors = PackedColorArray(0.027770996, 0.22210598, 0.25390625, 1, 0, 0.421875, 0.38232422, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_66uqa"]
+gradient = SubResource("Gradient_yw5qy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ooss"]
+shader = ExtResource("1_u4nl5")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = true
+shader_parameter/palette = SubResource("GradientTexture1D_66uqa")
+shader_parameter/palette_speed = 0.1
+
 [sub_resource type="LabelSettings" id="LabelSettings_dd7oj"]
 font_size = 70
 
 [node name="Ending" type="Node2D" unique_id=1274785199]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=18912431]
+material = SubResource("ShaderMaterial_4ooss")
+offset_top = -2.0
 offset_right = 1192.0
-offset_bottom = 712.0
+offset_bottom = 710.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1923325974]

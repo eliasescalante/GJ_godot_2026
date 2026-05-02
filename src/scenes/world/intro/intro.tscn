@@ -1,6 +1,29 @@
 [gd_scene format=3 uid="uid://b1ab8dy0hd6t3"]
 
 [ext_resource type="Script" uid="uid://c3r450gbfk1wm" path="res://src/scenes/world/intro/intro.gd" id="1_hrifw"]
+[ext_resource type="Shader" uid="uid://d3ass55fkjcxi" path="res://src/scenes/world/ending/background.gdshader" id="2_80ux7"]
+
+[sub_resource type="Gradient" id="Gradient_yw5qy"]
+offsets = PackedFloat32Array(0, 0.9848485)
+colors = PackedColorArray(0.027770996, 0.22210598, 0.25390625, 1, 0, 0.421875, 0.38232422, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_66uqa"]
+gradient = SubResource("Gradient_yw5qy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ooss"]
+shader = ExtResource("2_80ux7")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = true
+shader_parameter/palette = SubResource("GradientTexture1D_66uqa")
+shader_parameter/palette_speed = 0.1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmqw6"]
 content_margin_left = 4.0
@@ -65,8 +88,18 @@ corner_detail = 5
 [sub_resource type="LabelSettings" id="LabelSettings_80ux7"]
 font_size = 70
 
-[node name="Intro" type="Node2D" unique_id=746498506]
+[node name="Intro" type="CanvasLayer" unique_id=989487564]
 script = ExtResource("1_hrifw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2108394508]
+material = SubResource("ShaderMaterial_4ooss")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="bg" type="Sprite2D" parent="." unique_id=1097492743]
 
@@ -92,10 +125,10 @@ text = "CREDITS
 "
 
 [node name="Label" type="Label" parent="." unique_id=1078809560]
-offset_left = 327.99997
-offset_top = 169.0
-offset_right = 803.0
-offset_bottom = 364.0
+offset_left = 440.99997
+offset_top = 225.99998
+offset_right = 916.0
+offset_bottom = 421.0
 rotation = -0.20776863
 text = "GO BACK
 "
