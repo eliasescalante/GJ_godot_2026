@@ -31,15 +31,15 @@ height = 124.0
 [node name="Items" type="Node2D" parent="." unique_id=162860507]
 
 [node name="Item" parent="Items" unique_id=255965368 instance=ExtResource("3_ssvh6")]
-position = Vector2(213, 472)
+position = Vector2(8, 676)
 objeto_a_mostrar = 3
 
 [node name="Item2" parent="Items" unique_id=1232916825 instance=ExtResource("3_ssvh6")]
-position = Vector2(983, 848)
+position = Vector2(967, 844)
 objeto_a_mostrar = 1
 
 [node name="Item3" parent="Items" unique_id=415812778 instance=ExtResource("3_ssvh6")]
-position = Vector2(530, 477)
+position = Vector2(917, 470)
 objeto_a_mostrar = 5
 
 [node name="Item4" parent="Items" unique_id=1688573214 instance=ExtResource("3_ssvh6")]
