@@ -1,80 +1,72 @@
 class_name Item
 extends Node2D
 
-## Clase base para todos los items del laberinto.
-## El jugador los detecta con su RayCast2D y los registra en GameManager
-## para recordar su ubicación durante la noche.
+# --- Enumeración para el Inspector ---
+# Los nombres deben coincidir con los nombres de tus nodos Sprite2D
+enum TipoDeObjeto { ANTEOJOS, ANTEOJOS_ROTO, BOTELLA, BOTELLA_ROTA, PELOTA, PELOTA_ROTA }
 
-# --- Configuración exportada ---
-## Nombre único del item (se usa como key en el diccionario de GameManager)
-@export var item_name: String = "item_sin_nombre"
-## Descripción corta del item (para UI o pistas)
-@export var item_description: String = ""
-## Icono o textura representativa (para UI de inventario/memoria)
-@export var item_icon: Texture2D
+@export_group("Configuración Visual")
+## Selecciona qué objeto es esta instancia
+@export var objeto_a_mostrar: TipoDeObjeto = TipoDeObjeto.BOTELLA:
+	set(val):
+		objeto_a_mostrar = val
+		if is_node_ready():
+			_actualizar_visibilidad_nodos()
 
-# --- Nodos internos ---
+# --- Nodos Internos ---
 @onready var static_body: StaticBody2D = $StaticBody2D
-@onready var collision_shape: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-# --- Estado ---
-## Indica si el jugador ya vio este item
-var fue_visto: bool = false
+# Diccionario para mapear el Enum con los nombres reales de tus nodos
+@onready var nodos_sprites = {
+	TipoDeObjeto.ANTEOJOS: $anteojos,
+	TipoDeObjeto.ANTEOJOS_ROTO: $anteojos_roto,
+	TipoDeObjeto.BOTELLA: $botella,
+	TipoDeObjeto.BOTELLA_ROTA: $botella_rota,
+	TipoDeObjeto.PELOTA: $pelota,
+	TipoDeObjeto.PELOTA_ROTA: $pelota_rota
+}
 
+# --- Estado ---
+var fue_visto: bool = false
+var item_name: String = ""
 
 func _ready() -> void:
-	# Agregar al grupo para que el RayCast pueda identificar items fácilmente
 	add_to_group("item")
-	print("[Item] '%s' inicializado en posición %s" % [item_name, global_position])
+	_actualizar_visibilidad_nodos()
 	
-	if not static_body:
-		push_warning("[Item] '%s' no tiene StaticBody2D asignado!" % item_name)
-	if not collision_shape:
-		push_warning("[Item] '%s' no tiene CollisionShape2D asignado!" % item_name)
-	if not audio_player:
-		push_warning("[Item] '%s' no tiene AudioStreamPlayer2D asignado!" % item_name)
-	elif not audio_player.stream:
-		print("[Item] '%s' no tiene audio stream asignado (no sonará al ser descubierto)." % item_name)
+	# El nombre del item será el nombre del nodo seleccionado
+	item_name = TipoDeObjeto.keys()[objeto_a_mostrar].to_lower()
 
+## Oculta todos los sprites y solo muestra el seleccionado
+func _actualizar_visibilidad_nodos() -> void:
+	for tipo in nodos_sprites:
+		var nodo = nodos_sprites[tipo]
+		if nodo:
+			nodo.visible = (tipo == objeto_a_mostrar)
 
-## Llamado cuando el jugador detecta este item con su RayCast.
-## Registra el item en GameManager y reproduce el sonido de descubrimiento.
+## Llamado por el RayCast del jugador
 func ser_visto_por_jugador() -> void:
-	if fue_visto:
-		print("[Item] '%s' → el jugador ya me vio antes, ignorando." % item_name)
-		return
-
-	print("[Item] ====================================")
-	print("[Item] '%s' → ¡PRIMER CONTACTO VISUAL!" % item_name)
-	print("[Item] Posición del item: %s" % global_position)
+	if fue_visto: return
 	
 	fue_visto = true
-	_registrar_en_game_manager()
-	_reproducir_sonido_descubrimiento()
 	
-	print("[Item] '%s' → Proceso de descubrimiento completado." % item_name)
-	print("[Item] ====================================")
-
-
-## Registra la información del item en el diccionario de GameManager
-func _registrar_en_game_manager() -> void:
+	# Preparamos la info para el GameManager
 	var info := {
-		"descripcion": item_description,
 		"posicion": global_position,
-		"icono": item_icon,
-		"referencia": self,
+		"tipo": item_name,
+		"es_roto": item_name.contains("roto"),
+		"referencia": self
 	}
 	
-	print("[Item] '%s' → Registrando en GameManager..." % item_name)
 	GameManager.registrar_item(item_name, info)
-	print("[Item] '%s' → ¡Registrado! Total items vistos: %d" % [item_name, GameManager.cantidad_items_vistos()])
-
-
-## Reproduce el sonido de descubrimiento (si tiene stream asignado)
-func _reproducir_sonido_descubrimiento() -> void:
+	
+	# Feedback
 	if audio_player and audio_player.stream:
-		print("[Item] '%s' → Reproduciendo sonido de descubrimiento." % item_name)
 		audio_player.play()
-	else:
-		print("[Item] '%s' → Sin audio asignado, no se reproduce sonido." % item_name)
+	
+	# Efecto visual: hacemos que el sprite activo brille
+	var sprite_activo = nodos_sprites[objeto_a_mostrar]
+	var tween = create_tween()
+	tween.tween_property(sprite_activo, "modulate", Color(2, 2, 2), 0.1)
+	tween.tween_property(sprite_activo, "modulate", Color(1, 1, 1), 0.2)
