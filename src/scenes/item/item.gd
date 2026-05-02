@@ -52,7 +52,7 @@ func ser_visto_por_jugador() -> void:
 	if fue_visto: return
 	
 	fue_visto = true
-	
+	$FoundSFX.play()
 	# Preparamos la info para el GameManager
 	var info := {
 		"posicion": global_position,
