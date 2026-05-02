@@ -1,18 +1,12 @@
 [gd_scene format=3 uid="uid://difl8slskhcp1"]
 
 [ext_resource type="Script" uid="uid://donjuy4rto7r5" path="res://src/scenes/player/player.gd" id="1_swhsd"]
-[ext_resource type="Texture2D" uid="uid://cv3o0svgr5e3y" path="res://icon.svg" id="2_qopur"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qopur"]
-size = Vector2(16, 21)
+[sub_resource type="CircleShape2D" id="CircleShape2D_n52bt"]
+radius = 8.01561
 
 [node name="Player" type="CharacterBody2D" unique_id=2066801081 groups=["player"]]
 script = ExtResource("1_swhsd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297698237]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_qopur")
-debug_color = Color(0.90092397, 0.3072989, 0.12979418, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1097500561]
 zoom = Vector2(2, 2)
@@ -20,24 +14,35 @@ zoom = Vector2(2, 2)
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=1616531794]
 current = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297698237]
+shape = SubResource("CircleShape2D_n52bt")
+debug_color = Color(0.90092397, 0.3072989, 0.12979418, 0.41960785)
+
 [node name="Cuerpo" type="Node2D" parent="." unique_id=417038828]
 
-[node name="Icon" type="Sprite2D" parent="Cuerpo" unique_id=902636276]
-position = Vector2(-9.536743e-07, 1)
-scale = Vector2(0.12890624, 0.1484375)
-texture = ExtResource("2_qopur")
+[node name="Visual" type="Node2D" parent="Cuerpo" unique_id=759419681]
 
-[node name="Detector_pared" type="Area2D" parent="Cuerpo" unique_id=2006814782]
+[node name="Polygon2D" type="Polygon2D" parent="Cuerpo/Visual" unique_id=1880745801]
+polygon = PackedVector2Array(-8, 0, -7, -4, -4, -7, 0, -8, 4, -7, 7, -4, 8, 0, 7, 4, 4, 7, 0, 8, -4, 7, -7, 4)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cuerpo/Detector_pared" unique_id=1937216781]
-rotation = 1.565226
-polygon = PackedVector2Array(57.12723, -22.682135, 0, 0, 56.854286, 26.317106)
+[node name="Polygon2D3" type="Polygon2D" parent="Cuerpo/Visual" unique_id=1630150113]
+color = Color(0.00390625, 0.62646484, 1, 1)
+polygon = PackedVector2Array(-4, -3, -3, -4, -2, -3, -3, -2)
 
-[node name="Detector_item" type="Area2D" parent="Cuerpo" unique_id=711453216]
+[node name="Polygon2D4" type="Polygon2D" parent="Cuerpo/Visual" unique_id=1961473883]
+rotation = 1.5707964
+color = Color(0.00390625, 0.62646484, 1, 1)
+polygon = PackedVector2Array(-4, -3, -3, -4, -2, -3, -3, -2)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cuerpo/Detector_item" unique_id=1776219267]
-polygon = PackedVector2Array(-15, 51, 13, 52, -1, 1)
+[node name="Raycasts" type="Node2D" parent="Cuerpo" unique_id=860060935]
 
-[connection signal="body_entered" from="Cuerpo/Detector_pared" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Cuerpo/Detector_pared" to="." method="_on_detector_pared_body_exited"]
-[connection signal="body_entered" from="Cuerpo/Detector_item" to="." method="_on_detector_item_body_entered"]
+[node name="RayCast_Item" type="RayCast2D" parent="Cuerpo/Raycasts" unique_id=1239788222]
+target_position = Vector2(0, 41)
+
+[node name="RayCast_Item2" type="RayCast2D" parent="Cuerpo/Raycasts" unique_id=1372362601]
+position = Vector2(7, 0)
+target_position = Vector2(0, 41)
+
+[node name="RayCast_Item3" type="RayCast2D" parent="Cuerpo/Raycasts" unique_id=1187371176]
+position = Vector2(-7, 0)
+target_position = Vector2(0, 41)

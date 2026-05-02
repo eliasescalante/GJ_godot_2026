@@ -34,6 +34,7 @@ folder_colors={
 player=""
 cuadradito=""
 pared=""
+item=""
 
 [physics]
 

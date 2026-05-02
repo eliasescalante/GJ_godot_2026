@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cca8temg1pm6m"]
+
+[ext_resource type="Script" uid="uid://cwxhxrewl8udx" path="res://src/scenes/item/item.gd" id="1_item"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_item"]
+size = Vector2(16, 16)
+
+[sub_resource type="Curve" id="Curve_shine"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_shine"]
+offsets = PackedFloat32Array(0, 0, 1)
+colors = PackedColorArray(1, 0.9, 0.4, 1, 1, 1, 1, 0, 1, 0.8, 0.2, 0.6)
+
+[node name="Item" type="Node2D" unique_id=1232916825]
+script = ExtResource("1_item")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=160649459]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=676433198]
+shape = SubResource("RectangleShape2D_item")
+debug_color = Color(0.2, 0.8, 0.4, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1785942355]
+color = Color(0.97150004, 1, 0.43, 1)
+polygon = PackedVector2Array(-7, 0, 0, -8, 7, 0, 0, 8)
+
+[node name="ShineParticles" type="CPUParticles2D" parent="." unique_id=2000000000]
+amount = 12
+lifetime = 1.2
+randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+gravity = Vector2(0, -15)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+scale_amount_max = 16.3
+scale_amount_curve = SubResource("Curve_shine")
+color = Color(1, 0.984375, 0, 1)
+color_ramp = SubResource("Gradient_shine")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1591795815]

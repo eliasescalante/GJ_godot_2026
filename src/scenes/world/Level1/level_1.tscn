@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c7xwujhdv8deq"]
+
+[ext_resource type="PackedScene" uid="uid://6o2k861u37cj" path="res://src/scenes/world/Level1/map.tscn" id="1_tyfmc"]
+[ext_resource type="PackedScene" uid="uid://difl8slskhcp1" path="res://src/scenes/player/player.tscn" id="2_35war"]
+[ext_resource type="PackedScene" path="res://src/scenes/item/item.tscn" id="3_ssvh6"]
+[ext_resource type="Texture2D" uid="uid://cv3o0svgr5e3y" path="res://icon.svg" id="4_6l7c0"]
+
+[node name="Level1" type="Node2D" unique_id=2122621395]
+
+[node name="Map" parent="." unique_id=2001151964 instance=ExtResource("1_tyfmc")]
+
+[node name="Player" parent="." unique_id=2066801081 instance=ExtResource("2_35war")]
+position = Vector2(73, 56)
+SPEED = 200.0
+
+[node name="Item" parent="." unique_id=255965368 instance=ExtResource("3_ssvh6")]
+position = Vector2(107, 233)
+item_name = "Caja"
+item_description = "es una caja"
+item_icon = ExtResource("4_6l7c0")
