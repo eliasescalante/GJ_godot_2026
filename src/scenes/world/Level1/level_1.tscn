@@ -18,8 +18,6 @@ modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("2_35war")]
 position = Vector2(76, 77)
-SPEED = 50.0
-footstep_audio_freq = 1.0
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1926908656]

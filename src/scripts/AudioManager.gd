@@ -2,7 +2,8 @@ extends Node
 
 @export_group("Streamplayer no espaciales")
 @export var background_mx: AudioStreamPlayer
-@export var ambiance_sfx: AudioStreamPlayer
+@export var ambiance_day: AudioStreamPlayer
+@export var ambiance_night: AudioStreamPlayer
 @export var ui_accept_sfx: AudioStreamPlayer
 
 

@@ -12,7 +12,6 @@ script = ExtResource("1_dkyom")
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("2_qodj0")]
 position = Vector2(1364, 893)
-SPEED = 50.0
 
 [node name="Items" type="Node2D" parent="." unique_id=57820488]
 
