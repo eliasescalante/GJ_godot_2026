@@ -25,7 +25,7 @@ script = ExtResource("1_swhsd")
 footstep_audio_freq = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1097500561]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 limit_enabled = false
 limit_left = 0
 limit_top = 0
