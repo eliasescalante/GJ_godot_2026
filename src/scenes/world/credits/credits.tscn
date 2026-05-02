@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bhbeoolwijulk"]
+
+[ext_resource type="Script" uid="uid://wlrg18x5tebn" path="res://src/scenes/world/credits/credits.gd" id="1_lfj04"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg0sr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfj04"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gayxg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 5
+
+[node name="Credits" type="Node2D" unique_id=254686303]
+script = ExtResource("1_lfj04")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=2009759754]
+
+[node name="devs" type="Label" parent="." unique_id=1177812468]
+offset_left = 426.0
+offset_top = 249.0
+offset_right = 682.0
+offset_bottom = 272.0
+text = "Desarrollo y Programación: Ninja"
+
+[node name="ART" type="Label" parent="." unique_id=155031463]
+offset_left = 428.0
+offset_top = 289.0
+offset_right = 684.0
+offset_bottom = 312.0
+text = "Arte: Lu"
+
+[node name="game" type="Label" parent="." unique_id=1879842435]
+offset_left = 428.0
+offset_top = 335.0
+offset_right = 684.0
+offset_bottom = 384.0
+text = "Game Designer : Fer
+"
+
+[node name="Button" type="Button" parent="." unique_id=1116830594]
+offset_left = 491.0
+offset_top = 424.0
+offset_right = 672.0
+offset_bottom = 506.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kg0sr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lfj04")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gayxg")
+text = "MENU"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
