@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://difl8slskhcp1" path="res://src/scenes/player/player.tscn" id="2_qodj0"]
 [ext_resource type="PackedScene" uid="uid://cca8temg1pm6m" path="res://src/scenes/item/item.tscn" id="3_qodj0"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dkyom"]
+radius = 61.03278
+
 [node name="Level2" type="Node2D" unique_id=472477036]
 script = ExtResource("1_dkyom")
 
@@ -29,3 +32,11 @@ objeto_a_mostrar = 4
 [node name="Item4" parent="Items" unique_id=1863545514 instance=ExtResource("3_qodj0")]
 position = Vector2(787, 106)
 objeto_a_mostrar = 6
+
+[node name="MeDuermo" type="Area2D" parent="." unique_id=187800900]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeDuermo" unique_id=934561918]
+position = Vector2(97, 91)
+shape = SubResource("CircleShape2D_dkyom")
+
+[connection signal="body_entered" from="MeDuermo" to="." method="_on_me_duermo_body_entered"]
