@@ -27,6 +27,7 @@ texture_scale = 0.3
 height = 124.0
 
 [node name="Items" type="Node2D" parent="." unique_id=162860507]
+modulate = Color(0.3671875, 0.3671875, 0.3671875, 1)
 
 [node name="Item" parent="Items" unique_id=255965368 instance=ExtResource("3_ssvh6")]
 position = Vector2(8, 676)
