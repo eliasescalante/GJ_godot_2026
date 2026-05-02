@@ -18,7 +18,7 @@ modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("2_35war")]
 position = Vector2(76, 77)
-SPEED = 200.0
+SPEED = 50.0
 footstep_audio_freq = 1.0
 metadata/_edit_group_ = true
 
