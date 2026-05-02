@@ -5,8 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://0tubb6mn3fnv" path="res://src/assets/circulo prueba 1.png" id="3_6l7c0"]
 [ext_resource type="PackedScene" uid="uid://cca8temg1pm6m" path="res://src/scenes/item/item.tscn" id="3_ssvh6"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ssvh6"]
+radius = 26.305893
+
 [node name="Level1" type="Node2D" unique_id=2122621395]
-self_modulate = Color(18.875748, 18.875748, 18.875748, 1)
+self_modulate = Color(18.876, 18.876, 18.876, 1)
 
 [node name="Map" parent="." unique_id=2001151964 instance=ExtResource("1_tyfmc")]
 modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
@@ -23,15 +26,19 @@ texture_scale = 0.3
 [node name="Items" type="Node2D" parent="." unique_id=162860507]
 
 [node name="Item" parent="Items" unique_id=255965368 instance=ExtResource("3_ssvh6")]
-position = Vector2(107, 233)
+position = Vector2(213, 472)
 
 [node name="Item2" parent="Items" unique_id=1232916825 instance=ExtResource("3_ssvh6")]
-position = Vector2(379, 648)
+position = Vector2(983, 848)
 objeto_a_mostrar = 0
 
 [node name="Item3" parent="Items" unique_id=415812778 instance=ExtResource("3_ssvh6")]
-position = Vector2(227, 506)
+position = Vector2(530, 477)
 objeto_a_mostrar = 4
 
 [node name="Area2D" type="Area2D" parent="." unique_id=541191605]
 position = Vector2(922, 556)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1983440502]
+position = Vector2(289, 368)
+shape = SubResource("CircleShape2D_ssvh6")
