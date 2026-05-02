@@ -62,11 +62,11 @@ target_position = Vector2(0, 41)
 
 [node name="RayCast_Item2" type="RayCast2D" parent="Cuerpo/Raycasts" unique_id=1372362601]
 position = Vector2(7, 0)
-target_position = Vector2(0, 41)
+target_position = Vector2(0, 33.155)
 
 [node name="RayCast_Item3" type="RayCast2D" parent="Cuerpo/Raycasts" unique_id=1187371176]
 position = Vector2(-7, 0)
-target_position = Vector2(0, 41)
+target_position = Vector2(0, 33.155)
 
 [node name="FootSteps" type="AudioStreamPlayer2D" parent="." unique_id=831085217]
 stream = SubResource("AudioStreamRandomizer_8tvdu")
