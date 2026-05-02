@@ -79,6 +79,7 @@ objeto_a_mostrar = 0
 
 [node name="Item3" parent="Items" unique_id=1342063219 instance=ExtResource("3_qodj0")]
 position = Vector2(915, 471)
+scale = Vector2(0.4800098, 0.50435984)
 objeto_a_mostrar = 4
 
 [node name="Item4" parent="Items" unique_id=1863545514 instance=ExtResource("3_qodj0")]

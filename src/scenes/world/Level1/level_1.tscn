@@ -91,6 +91,7 @@ objeto_a_mostrar = 1
 
 [node name="Item3" parent="Items" unique_id=415812778 instance=ExtResource("3_ssvh6")]
 position = Vector2(917, 470)
+scale = Vector2(0.5105944, 0.5145056)
 objeto_a_mostrar = 5
 
 [node name="Item4" parent="Items" unique_id=1688573214 instance=ExtResource("3_ssvh6")]
@@ -105,6 +106,7 @@ position = Vector2(340, 347)
 shape = SubResource("CircleShape2D_ssvh6")
 
 [node name="FadeIN" type="CanvasLayer" parent="." unique_id=428703397]
+visible = false
 
 [node name="TextureRect" type="ColorRect" parent="FadeIN" unique_id=1412292193]
 anchors_preset = 15

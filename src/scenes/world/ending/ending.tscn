@@ -1,7 +1,22 @@
 [gd_scene format=3 uid="uid://ikmt0kpbu46i"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_dd7oj"]
+font_size = 70
+
 [node name="Ending" type="Node2D" unique_id=1274785199]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=18912431]
 offset_right = 1192.0
 offset_bottom = 712.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1923325974]
+offset_left = 328.00003
+offset_top = 280.00003
+offset_right = 803.00006
+offset_bottom = 475.00003
+rotation = -0.20776863
+scale = Vector2(0.9977998, 0.99896616)
+text = "GRACIAS POR
+JUGAR AMIX :)"
+label_settings = SubResource("LabelSettings_dd7oj")
