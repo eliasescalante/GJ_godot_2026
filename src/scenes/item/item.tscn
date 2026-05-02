@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://dt0s6lvxn864b" path="res://src/assets/audio/sfx/Toy Piano B.wav" id="2_mrt82"]
 [ext_resource type="Texture2D" uid="uid://dsot76bf5jktt" path="res://src/assets/libros.png" id="3_bpqc0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_item"]
-size = Vector2(23, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mrt82"]
+radius = 20.09975
 
 [sub_resource type="Curve" id="Curve_shine"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -22,7 +22,7 @@ script = ExtResource("1_item")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=160649459]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=676433198]
-shape = SubResource("RectangleShape2D_item")
+shape = SubResource("CircleShape2D_mrt82")
 debug_color = Color(0.2, 0.8, 0.4, 0.42)
 
 [node name="ShineParticles" type="CPUParticles2D" parent="." unique_id=2000000000]
@@ -45,21 +45,22 @@ stream = ExtResource("2_mrt82")
 
 [node name="anteojos" type="Sprite2D" parent="." unique_id=1005433391]
 visible = false
-scale = Vector2(0.05302198, 0.07820855)
+scale = Vector2(0.085, 0.085)
 texture = ExtResource("2_j5quk")
 region_enabled = true
 region_rect = Rect2(479, 287.5, 455, 187)
 
 [node name="anteojos_roto" type="Sprite2D" parent="." unique_id=135768180]
 visible = false
-position = Vector2(-1.5000076, 0.5)
-scale = Vector2(0.058951944, 0.08571427)
+position = Vector2(3.5762787e-07, -5.9604645e-08)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("2_j5quk")
 region_enabled = true
 region_rect = Rect2(478.25403, 67.85739, 458.2107, 175.75204)
 
 [node name="botella" type="Sprite2D" parent="." unique_id=1305481673]
-position = Vector2(2.3841858e-07, 4)
+visible = false
+position = Vector2(-2.842171e-14, 0)
 scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
@@ -67,7 +68,7 @@ region_rect = Rect2(2185.252, 0, 153.7832, 500)
 
 [node name="pelota_rota" type="Sprite2D" parent="." unique_id=174535034]
 visible = false
-position = Vector2(2.3841858e-07, 4)
+position = Vector2(-2.842171e-14, 0)
 scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
@@ -75,7 +76,7 @@ region_rect = Rect2(1011.4794, 0, 417.41113, 500)
 
 [node name="pelota" type="Sprite2D" parent="." unique_id=1525923458]
 visible = false
-position = Vector2(2.3841858e-07, 4)
+position = Vector2(-2.842171e-14, 0)
 scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
@@ -83,7 +84,7 @@ region_rect = Rect2(1510.4897, 78.955414, 364.05786, 379.74994)
 
 [node name="botella_rota" type="Sprite2D" parent="." unique_id=1630428853]
 visible = false
-position = Vector2(2.3841858e-07, 4)
+position = Vector2(-2.842171e-14, 0)
 scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
@@ -91,16 +92,16 @@ region_rect = Rect2(1909.0703, 28.740509, 235.38208, 464.48755)
 
 [node name="libro" type="Sprite2D" parent="." unique_id=473052067]
 visible = false
-position = Vector2(2.3841858e-07, 4)
-scale = Vector2(0.09615385, 0.080474935)
+position = Vector2(-2.842171e-14, 0)
+scale = Vector2(0.069265485, 0.057971016)
 texture = ExtResource("3_bpqc0")
 region_enabled = true
 region_rect = Rect2(735.2976, 47.571106, 530.39465, 414.27267)
 
 [node name="libro_roto" type="Sprite2D" parent="." unique_id=891914500]
 visible = false
-position = Vector2(2.3841858e-07, 4)
-scale = Vector2(0.09615385, 0.080474935)
+position = Vector2(-2.842171e-14, 0)
+scale = Vector2(0.071744986, 0.060046192)
 texture = ExtResource("3_bpqc0")
 region_enabled = true
 region_rect = Rect2(120.16545, 38.155792, 527.25616, 433.10327)
