@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c7xwujhdv8deq"]
 
+[ext_resource type="Script" uid="uid://boy66mbj4kbt1" path="res://src/scenes/world/Level1/level_1.gd" id="1_6l7c0"]
 [ext_resource type="PackedScene" uid="uid://6o2k861u37cj" path="res://src/scenes/world/Level1/map.tscn" id="1_tyfmc"]
 [ext_resource type="PackedScene" uid="uid://difl8slskhcp1" path="res://src/scenes/player/player.tscn" id="2_35war"]
 [ext_resource type="Texture2D" uid="uid://0tubb6mn3fnv" path="res://src/assets/circulo prueba 1.png" id="3_6l7c0"]
@@ -10,12 +11,13 @@ radius = 26.305893
 
 [node name="Level1" type="Node2D" unique_id=2122621395]
 self_modulate = Color(18.876, 18.876, 18.876, 1)
+script = ExtResource("1_6l7c0")
 
 [node name="Map" parent="." unique_id=2001151964 instance=ExtResource("1_tyfmc")]
 modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("2_35war")]
-position = Vector2(89, 64)
+position = Vector2(76, 77)
 SPEED = 200.0
 footstep_audio_freq = 1.0
 metadata/_edit_group_ = true
@@ -43,9 +45,11 @@ objeto_a_mostrar = 4
 position = Vector2(787, 106)
 objeto_a_mostrar = 6
 
-[node name="Area2D" type="Area2D" parent="." unique_id=541191605]
+[node name="Salida" type="Area2D" parent="." unique_id=541191605]
 position = Vector2(922, 556)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1983440502]
-position = Vector2(426, 345)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salida" unique_id=1983440502]
+position = Vector2(340, 347)
 shape = SubResource("CircleShape2D_ssvh6")
+
+[connection signal="body_entered" from="Salida" to="." method="_on_area_2d_body_entered"]
