@@ -8,6 +8,58 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dkyom"]
 radius = 61.03278
 
+[sub_resource type="Animation" id="Animation_ynxqf"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1cqdc"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2unqj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkyom"]
+_data = {
+&"FadeIn": SubResource("Animation_ynxqf"),
+&"FadeOut": SubResource("Animation_1cqdc"),
+&"RESET": SubResource("Animation_2unqj")
+}
+
 [node name="Level2" type="Node2D" unique_id=472477036]
 script = ExtResource("1_dkyom")
 
@@ -38,5 +90,19 @@ objeto_a_mostrar = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeDuermo" unique_id=934561918]
 position = Vector2(97, 91)
 shape = SubResource("CircleShape2D_dkyom")
+
+[node name="FadeIN" type="CanvasLayer" parent="." unique_id=834992530]
+
+[node name="TextureRect" type="ColorRect" parent="FadeIN" unique_id=495787663]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeIN" unique_id=31019419]
+libraries/ = SubResource("AnimationLibrary_dkyom")
+autoplay = &"FadeIn"
 
 [connection signal="body_entered" from="MeDuermo" to="." method="_on_me_duermo_body_entered"]
