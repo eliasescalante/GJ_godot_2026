@@ -2,17 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://6o2k861u37cj" path="res://src/scenes/world/Level1/map.tscn" id="1_tyfmc"]
 [ext_resource type="PackedScene" uid="uid://difl8slskhcp1" path="res://src/scenes/player/player.tscn" id="2_35war"]
+[ext_resource type="Texture2D" uid="uid://0tubb6mn3fnv" path="res://src/assets/circulo prueba 1.png" id="3_6l7c0"]
 [ext_resource type="PackedScene" uid="uid://cca8temg1pm6m" path="res://src/scenes/item/item.tscn" id="3_ssvh6"]
-[ext_resource type="Texture2D" uid="uid://cv3o0svgr5e3y" path="res://icon.svg" id="4_6l7c0"]
-
-[sub_resource type="Gradient" id="Gradient_ssvh6"]
-offsets = PackedFloat32Array(0.17848101, 0.82658225, 0.9329114)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6l7c0"]
-gradient = SubResource("Gradient_ssvh6")
 
 [node name="Level1" type="Node2D" unique_id=2122621395]
+self_modulate = Color(18.875748, 18.875748, 18.875748, 1)
 
 [node name="Map" parent="." unique_id=2001151964 instance=ExtResource("1_tyfmc")]
 modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
@@ -21,14 +15,23 @@ modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
 position = Vector2(73, 56)
 SPEED = 100.0
 
-[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1520114661]
-position = Vector2(0, 49)
-rotation = -1.5707964
-scale = Vector2(0.62109375, 92.85526)
-texture = SubResource("GradientTexture1D_6l7c0")
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1926908656]
+energy = 3.09
+texture = ExtResource("3_6l7c0")
+texture_scale = 0.3
 
-[node name="Item" parent="." unique_id=255965368 instance=ExtResource("3_ssvh6")]
+[node name="Items" type="Node2D" parent="." unique_id=162860507]
+
+[node name="Item" parent="Items" unique_id=255965368 instance=ExtResource("3_ssvh6")]
 position = Vector2(107, 233)
-item_name = "Caja"
-item_description = "es una caja"
-item_icon = ExtResource("4_6l7c0")
+
+[node name="Item2" parent="Items" unique_id=1232916825 instance=ExtResource("3_ssvh6")]
+position = Vector2(379, 648)
+objeto_a_mostrar = 0
+
+[node name="Item3" parent="Items" unique_id=415812778 instance=ExtResource("3_ssvh6")]
+position = Vector2(227, 506)
+objeto_a_mostrar = 4
+
+[node name="Area2D" type="Area2D" parent="." unique_id=541191605]
+position = Vector2(922, 556)

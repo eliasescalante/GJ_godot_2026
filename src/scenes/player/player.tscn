@@ -26,6 +26,11 @@ footstep_audio_freq = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1097500561]
 zoom = Vector2(2, 2)
+limit_enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=1616531794]
 
