@@ -12,8 +12,13 @@ self_modulate = Color(18.875748, 18.875748, 18.875748, 1)
 modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
 
 [node name="Player" parent="." unique_id=2066801081 instance=ExtResource("2_35war")]
+<<<<<<< Updated upstream
 position = Vector2(73, 56)
 SPEED = 100.0
+=======
+position = Vector2(76, 77)
+metadata/_edit_group_ = true
+>>>>>>> Stashed changes
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1926908656]
 energy = 3.09

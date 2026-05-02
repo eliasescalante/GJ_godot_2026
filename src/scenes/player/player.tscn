@@ -22,6 +22,7 @@ stream_4/stream = ExtResource("6_7vxwc")
 
 [node name="Player" type="CharacterBody2D" unique_id=2066801081 groups=["player"]]
 script = ExtResource("1_swhsd")
+SPEED = 100.0
 footstep_audio_freq = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1097500561]

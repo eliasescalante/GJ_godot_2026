@@ -5,9 +5,11 @@
 [ext_resource type="AudioStream" uid="uid://0383t0bj7lbw" path="res://src/assets/audio/sfx/SFX_ambiance_loop.ogg" id="3_bdysg"]
 [ext_resource type="AudioStream" uid="uid://cv0fqo1g5fwba" path="res://src/assets/audio/sfx/SFX_ambiance-night_loop.ogg" id="4_rsaqi"]
 
-[node name="AudioManager" type="Node" unique_id=86731074 node_paths=PackedStringArray("background_mx")]
+[node name="AudioManager" type="Node" unique_id=86731074 node_paths=PackedStringArray("background_mx", "ambiance_sfx_day", "ambiance_sfx_night")]
 script = ExtResource("1_script")
 background_mx = NodePath("MusicPlayer")
+ambiance_sfx_day = NodePath("AmbianceDay")
+ambiance_sfx_night = NodePath("AmbianceNight")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=76832562]
 stream = ExtResource("2_0w07p")

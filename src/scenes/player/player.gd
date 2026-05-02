@@ -47,12 +47,15 @@ func _physics_process(delta: float) -> void:
 		var angulo = direction.angle()
 		# Ajuste de rotación para que el sprite mire hacia donde camina
 		personaje.rotation = angulo - (PI / 2)
-		_reproducir_pasos(true)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, current_speed)
-		_reproducir_pasos(false)
 	
 	move_and_slide()
+	
+	# Solo reproducir pasos si hay intención de moverse Y el cuerpo realmente se está desplazando
+	# (Evita que suene al caminar contra una pared)
+	var esta_moviendose_realmente = direction != Vector2.ZERO and get_real_velocity().length() > 0.1
+	_reproducir_pasos(esta_moviendose_realmente)
 	
 	# 2. Gestión de timers y detección
 	_debug_timer += delta

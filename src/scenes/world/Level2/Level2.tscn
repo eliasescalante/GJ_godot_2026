@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cinw8ne8s6vgc"]
+
+[ext_resource type="Script" uid="uid://daj83wshjph1q" path="res://src/scenes/world/Level2/level_2.gd" id="1_dkyom"]
+[ext_resource type="PackedScene" uid="uid://6o2k861u37cj" path="res://src/scenes/world/Level1/map.tscn" id="1_kp4ii"]
+[ext_resource type="PackedScene" uid="uid://difl8slskhcp1" path="res://src/scenes/player/player.tscn" id="2_qodj0"]
+[ext_resource type="PackedScene" uid="uid://cca8temg1pm6m" path="res://src/scenes/item/item.tscn" id="3_qodj0"]
+
+[node name="Level2" type="Node2D" unique_id=472477036]
+script = ExtResource("1_dkyom")
+
+[node name="Map" parent="." unique_id=2001151964 instance=ExtResource("1_kp4ii")]
+
+[node name="Player" parent="." unique_id=2066801081 instance=ExtResource("2_qodj0")]
+position = Vector2(1364, 893)
+SPEED = 70.0
+
+[node name="Items" type="Node2D" parent="." unique_id=57820488]
+
+[node name="Item" parent="Items" unique_id=1232916825 instance=ExtResource("3_qodj0")]
+position = Vector2(213, 472)
+
+[node name="Item2" parent="Items" unique_id=542862298 instance=ExtResource("3_qodj0")]
+position = Vector2(983, 848)
+objeto_a_mostrar = 0
+
+[node name="Item3" parent="Items" unique_id=1342063219 instance=ExtResource("3_qodj0")]
+position = Vector2(530, 477)
+objeto_a_mostrar = 4
+
+[node name="Item4" parent="Items" unique_id=1863545514 instance=ExtResource("3_qodj0")]
+position = Vector2(787, 106)
+objeto_a_mostrar = 6

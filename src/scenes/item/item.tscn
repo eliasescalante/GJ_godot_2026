@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://cwxhxrewl8udx" path="res://src/scenes/item/item.gd" id="1_item"]
 [ext_resource type="Texture2D" uid="uid://cf48apeoouvmn" path="res://src/assets/las cosas.png" id="2_j5quk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_item"]
-size = Vector2(23, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mrt82"]
+radius = 16.00781
 
 [sub_resource type="Curve" id="Curve_shine"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_shine"]
-offsets = PackedFloat32Array(0, 0, 1)
-colors = PackedColorArray(1, 0.9, 0.4, 1, 1, 1, 1, 0, 1, 0.8, 0.2, 0.6)
+offsets = PackedFloat32Array(0, 0, 0.049872123, 1)
+colors = PackedColorArray(1, 0.9, 0.4, 1, 1, 1, 1, 0, 1, 0.9896569, 0.33804345, 0.68925834, 1, 0.98640627, 0.13, 0.90588236)
 
 [node name="Item" type="Node2D" unique_id=1232916825]
 script = ExtResource("1_item")
@@ -20,7 +20,7 @@ script = ExtResource("1_item")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=160649459]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=676433198]
-shape = SubResource("RectangleShape2D_item")
+shape = SubResource("CircleShape2D_mrt82")
 debug_color = Color(0.2, 0.8, 0.4, 0.42)
 
 [node name="ShineParticles" type="CPUParticles2D" parent="." unique_id=2000000000]
@@ -33,9 +33,9 @@ direction = Vector2(0, -1)
 gravity = Vector2(0, -15)
 initial_velocity_min = 5.0
 initial_velocity_max = 15.0
-scale_amount_max = 16.3
+scale_amount_min = 0.0
+scale_amount_max = 9.57
 scale_amount_curve = SubResource("Curve_shine")
-color = Color(1, 0.984375, 0, 1)
 color_ramp = SubResource("Gradient_shine")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1591795815]
@@ -50,14 +50,13 @@ region_rect = Rect2(479, 287.5, 455, 187)
 
 [node name="anteojos_roto" type="Sprite2D" parent="." unique_id=135768180]
 visible = false
-position = Vector2(-1.5000076, 0.5)
 scale = Vector2(0.058951944, 0.08571427)
 texture = ExtResource("2_j5quk")
 region_enabled = true
 region_rect = Rect2(478.25403, 67.85739, 458.2107, 175.75204)
 
 [node name="botella" type="Sprite2D" parent="." unique_id=1305481673]
-position = Vector2(2.3841858e-07, 4)
+position = Vector2(-2.842171e-14, 0)
 scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
@@ -65,7 +64,7 @@ region_rect = Rect2(2185.252, 0, 153.7832, 500)
 
 [node name="pelota_rota" type="Sprite2D" parent="." unique_id=174535034]
 visible = false
-position = Vector2(2.3841858e-07, 4)
+position = Vector2(3.3881318e-21, -1)
 scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
@@ -73,7 +72,7 @@ region_rect = Rect2(1011.4794, 0, 417.41113, 500)
 
 [node name="pelota" type="Sprite2D" parent="." unique_id=1525923458]
 visible = false
-position = Vector2(2.3841858e-07, 4)
+position = Vector2(-2.842171e-14, 0)
 scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
@@ -81,8 +80,26 @@ region_rect = Rect2(1510.4897, 78.955414, 364.05786, 379.74994)
 
 [node name="botella_rota" type="Sprite2D" parent="." unique_id=1630428853]
 visible = false
-position = Vector2(2.3841858e-07, 4)
+position = Vector2(-2.842171e-14, 0)
 scale = Vector2(0.09615385, 0.080474935)
 texture = ExtResource("2_j5quk")
 region_enabled = true
 region_rect = Rect2(1909.0703, 28.740509, 235.38208, 464.48755)
+<<<<<<< Updated upstream
+=======
+
+[node name="libro" type="Sprite2D" parent="." unique_id=473052067]
+visible = false
+position = Vector2(-2.842171e-14, 0)
+scale = Vector2(0.069265485, 0.057971016)
+texture = ExtResource("3_bpqc0")
+region_enabled = true
+region_rect = Rect2(735.2976, 47.571106, 530.39465, 414.27267)
+
+[node name="libro_roto" type="Sprite2D" parent="." unique_id=891914500]
+visible = false
+scale = Vector2(0.06622613, 0.05542725)
+texture = ExtResource("3_bpqc0")
+region_enabled = true
+region_rect = Rect2(120.16545, 38.155792, 527.25616, 433.10327)
+>>>>>>> Stashed changes
