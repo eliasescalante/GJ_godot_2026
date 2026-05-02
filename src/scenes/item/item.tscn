@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwxhxrewl8udx" path="res://src/scenes/item/item.gd" id="1_item"]
 [ext_resource type="Texture2D" uid="uid://cf48apeoouvmn" path="res://src/assets/las cosas.png" id="2_j5quk"]
+[ext_resource type="AudioStream" uid="uid://dt0s6lvxn864b" path="res://src/assets/audio/sfx/Toy Piano B.wav" id="2_mrt82"]
 [ext_resource type="Texture2D" uid="uid://dsot76bf5jktt" path="res://src/assets/libros.png" id="3_bpqc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_item"]
@@ -39,8 +40,8 @@ scale_amount_curve = SubResource("Curve_shine")
 color = Color(1, 0.984375, 0, 1)
 color_ramp = SubResource("Gradient_shine")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1591795815]
-position = Vector2(124, 33)
+[node name="FoundSFX" type="AudioStreamPlayer2D" parent="." unique_id=1591795815]
+stream = ExtResource("2_mrt82")
 
 [node name="anteojos" type="Sprite2D" parent="." unique_id=1005433391]
 visible = false
