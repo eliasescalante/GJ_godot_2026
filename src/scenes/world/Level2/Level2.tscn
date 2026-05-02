@@ -17,14 +17,14 @@ SPEED = 50.0
 [node name="Items" type="Node2D" parent="." unique_id=57820488]
 
 [node name="Item" parent="Items" unique_id=1232916825 instance=ExtResource("3_qodj0")]
-position = Vector2(213, 472)
+position = Vector2(10, 686)
 
 [node name="Item2" parent="Items" unique_id=542862298 instance=ExtResource("3_qodj0")]
 position = Vector2(983, 848)
 objeto_a_mostrar = 0
 
 [node name="Item3" parent="Items" unique_id=1342063219 instance=ExtResource("3_qodj0")]
-position = Vector2(530, 477)
+position = Vector2(915, 471)
 objeto_a_mostrar = 4
 
 [node name="Item4" parent="Items" unique_id=1863545514 instance=ExtResource("3_qodj0")]
