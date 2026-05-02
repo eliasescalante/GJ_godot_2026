@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ckj2f2o5e2i14" path="res://src/scripts/AudioManager.gd" id="1_script"]
 [ext_resource type="AudioStream" uid="uid://trsprtnqyr7j" path="res://src/assets/audio/test__sine-440hz.wav" id="2_0w07p"]
+[ext_resource type="AudioStream" uid="uid://0383t0bj7lbw" path="res://src/assets/audio/sfx/SFX_ambiance_loop.ogg" id="3_bdysg"]
+[ext_resource type="AudioStream" uid="uid://cv0fqo1g5fwba" path="res://src/assets/audio/sfx/SFX_ambiance-night_loop.ogg" id="4_rsaqi"]
 
 [node name="AudioManager" type="Node" unique_id=86731074 node_paths=PackedStringArray("background_mx")]
 script = ExtResource("1_script")
@@ -10,4 +12,10 @@ background_mx = NodePath("MusicPlayer")
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=76832562]
 stream = ExtResource("2_0w07p")
 
-[node name="Ambiance" type="AudioStreamPlayer" parent="." unique_id=2100350226]
+[node name="AmbianceDay" type="AudioStreamPlayer" parent="." unique_id=2100350226]
+stream = ExtResource("3_bdysg")
+volume_db = -22.708
+
+[node name="AmbianceNight" type="AudioStreamPlayer" parent="." unique_id=1110561139]
+stream = ExtResource("4_rsaqi")
+volume_db = -6.812

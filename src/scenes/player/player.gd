@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
 @export var SPEED = 300.0
+
+@export_group("Audio")
+@export var footstep_audio_freq: float = 1
+
 @onready var personaje = $Cuerpo
 @onready var raycasts_node: Node2D = $Cuerpo/Raycasts
+@onready var foot_steps: AudioStreamPlayer2D = $FootSteps
+
 
 # --- Estado de detección ---
 var pared_en_frente = 0
@@ -12,6 +18,8 @@ var _raycasts: Array[RayCast2D] = []
 ## Throttle para no spamear prints cada frame
 var _debug_timer: float = 0.0
 const DEBUG_INTERVAL: float = 0.2  # imprimir cada 0.2 segundos máximo
+
+var _paso_esperando: bool = false
 
 
 func _ready():
@@ -28,12 +36,20 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	
+	# Calculamos la velocidad basada en el intervalo de pasos.
+	# Si el delay es mayor (ej: 2.0s), la velocidad se reduce a la mitad.
+	var current_speed = SPEED
+	if footstep_audio_freq > 0.01: # Evitar división por cero
+		current_speed = SPEED / footstep_audio_freq
+	
 	if direction != Vector2.ZERO:
-		velocity = direction * SPEED
+		velocity = direction * current_speed
 		var angulo = direction.angle()
 		personaje.rotation = angulo - (PI / 2)
+		_reproducir_pasos(true)
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+		velocity = velocity.move_toward(Vector2.ZERO, current_speed)
+		_reproducir_pasos(false)
 	
 	move_and_slide()
 	
@@ -75,3 +91,18 @@ func _detectar_items_con_raycasts() -> void:
 	# Resetear timer de debug después de imprimir
 	if _debug_timer >= DEBUG_INTERVAL:
 		_debug_timer = 0.0
+
+
+func _reproducir_pasos(active: bool) -> void:
+	
+	if !active:
+		foot_steps.stop()
+		return
+	
+	if _paso_esperando:
+		return
+	
+	_paso_esperando = true
+	foot_steps.play()
+	await get_tree().create_timer(footstep_audio_freq).timeout
+	_paso_esperando = false

@@ -90,10 +90,10 @@ position = Vector2(40, 1)
 polygon = PackedVector2Array(-8, 0, -11, -10, -17, -21, -14, 0, -17, 21, -12, 10)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1288373812]
-offset_left = -549.0
-offset_top = -103.0
-offset_right = -383.0
-offset_bottom = 136.0
+offset_left = -264.0
+offset_top = -95.0
+offset_right = -98.0
+offset_bottom = 144.0
 
 [node name="ButtonLeft" type="Button" parent="VBoxContainer" unique_id=735686070 node_paths=PackedStringArray("bip_sfx")]
 layout_mode = 2
@@ -192,10 +192,9 @@ attenuation = 12.125693
 panning_strength = 3.0
 
 [node name="ButtonRight" type="Button" parent="." unique_id=1303132068 node_paths=PackedStringArray("bip_sfx")]
-offset_left = 430.0
-offset_top = -32.0
-offset_right = 544.0
-offset_bottom = 45.0
+offset_left = 145.0
+offset_top = -77.0
+offset_right = 259.0
 text = "Make bip "
 script = ExtResource("2_3tqu7")
 bip_sfx = NodePath("TestBid2D")
@@ -215,10 +214,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -640.0
-offset_top = -379.0
-offset_right = -511.0
-offset_bottom = -348.0
+offset_left = -628.0
+offset_top = -531.0
+offset_right = -499.0
+offset_bottom = -500.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "RESTART SCENE"

@@ -1,18 +1,33 @@
 [gd_scene format=3 uid="uid://difl8slskhcp1"]
 
 [ext_resource type="Script" uid="uid://donjuy4rto7r5" path="res://src/scenes/player/player.gd" id="1_swhsd"]
+[ext_resource type="AudioStream" uid="uid://prwf4irbc6id" path="res://src/assets/audio/sfx/footsteps/SFX_footstep-001.ogg" id="2_lh6av"]
+[ext_resource type="AudioStream" uid="uid://bssh3pexbvko5" path="res://src/assets/audio/sfx/footsteps/SFX_footstep-002.ogg" id="3_6ap8y"]
+[ext_resource type="AudioStream" uid="uid://u7weam3w260" path="res://src/assets/audio/sfx/footsteps/SFX_footstep-003.ogg" id="4_w8ig4"]
+[ext_resource type="AudioStream" uid="uid://dm2pur4hax65w" path="res://src/assets/audio/sfx/footsteps/SFX_footstep-004.ogg" id="5_mc3vd"]
+[ext_resource type="AudioStream" uid="uid://dd6biil1rne8h" path="res://src/assets/audio/sfx/footsteps/SFX_footstep-005.ogg" id="6_7vxwc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n52bt"]
 radius = 8.01561
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8tvdu"]
+random_pitch = 1.1892071
+random_volume_offset_db = 2.0
+streams_count = 5
+stream_0/stream = ExtResource("2_lh6av")
+stream_1/stream = ExtResource("3_6ap8y")
+stream_2/stream = ExtResource("4_w8ig4")
+stream_3/stream = ExtResource("5_mc3vd")
+stream_4/stream = ExtResource("6_7vxwc")
+
 [node name="Player" type="CharacterBody2D" unique_id=2066801081 groups=["player"]]
 script = ExtResource("1_swhsd")
+footstep_audio_freq = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1097500561]
 zoom = Vector2(2, 2)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=1616531794]
-current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297698237]
 shape = SubResource("CircleShape2D_n52bt")
@@ -46,3 +61,7 @@ target_position = Vector2(0, 41)
 [node name="RayCast_Item3" type="RayCast2D" parent="Cuerpo/Raycasts" unique_id=1187371176]
 position = Vector2(-7, 0)
 target_position = Vector2(0, 41)
+
+[node name="FootSteps" type="AudioStreamPlayer2D" parent="." unique_id=831085217]
+stream = SubResource("AudioStreamRandomizer_8tvdu")
+volume_db = -9.764
