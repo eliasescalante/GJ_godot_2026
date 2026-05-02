@@ -97,7 +97,7 @@ offset_top = 169.0
 offset_right = 803.0
 offset_bottom = 364.0
 rotation = -0.20776863
-text = "SIN NOMBRE
+text = "GO BACK
 "
 label_settings = SubResource("LabelSettings_80ux7")
 
